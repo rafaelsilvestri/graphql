@@ -1,0 +1,12 @@
+scalar Long
+
+type Author {
+    id: Int,
+    fullName: String,
+    email: String
+}
+
+input AuthorInput {
+    fullName: String,
+    email: String
+}

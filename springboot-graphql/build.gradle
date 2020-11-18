@@ -1,0 +1,57 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.0-SNAPSHOT'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'org.flywaydb.flyway' version '6.0.4'
+	id 'java'
+	id 'idea'
+}
+
+group = 'com.github.rafaelsilvestri'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	jcenter()
+	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+	maven { url 'https://repo.spring.io/snapshot' }
+}
+
+dependencies {
+	//implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	// GraphQL
+	implementation 'com.graphql-java-kickstart:graphql-spring-boot-starter:8.0.0'
+	implementation 'com.graphql-java-kickstart:graphql-java-tools:6.2.0'
+	runtimeOnly 'com.graphql-java-kickstart:graphiql-spring-boot-starter:8.0.0'
+
+	implementation("org.springframework.data:spring-data-jdbc")
+	implementation("org.postgresql:postgresql")
+	implementation("commons-dbcp:commons-dbcp:1.4")
+
+	implementation 'com.github.javafaker:javafaker:1.0.2'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'io.projectreactor:reactor-test'
+}
+
+test {
+	useJUnitPlatform()
+}
+
+// ./gradlew flywayMigrate -i -Pflyway.schemas=public -Pflyway.user=${DB_USER} -Pflyway.password=${DB_PWD} -Pflyway.url=${DB_HOST}"
+flyway {
+	driver = 'org.postgresql.Driver'
+	url = 'jdbc:postgresql://localhost:5432/graphql-db'
+	user = 'postgres'
+	password = 'password'
+}
+

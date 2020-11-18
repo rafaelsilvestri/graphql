@@ -1,0 +1,13 @@
+type Query {
+    findAuthors:[Author]
+    findAuthorByEmail(email: String):Author
+    findAuthorById(id: Int):Author
+
+    findBookByAuthor(id: Int): [Book]
+    findBookById(id: Int): Book
+ }
+
+type Mutation {
+    createAuthor(author: AuthorInput): Author
+    createBook(book: BookInput!, email: String!): Book
+}

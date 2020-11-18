@@ -1,0 +1,10 @@
+insert into book (id, isbn, title, author_id) values (1,'1000','The Parliament of Man',2);
+insert into book (id, isbn, title, author_id) values (2,'2000','The Daffodil Sky',1);
+insert into book (id, isbn, title, author_id) values (3,'3000','To a God Unknown',2);
+insert into book (id, isbn, title, author_id) values (4,'4000','A Passage to India',1);
+insert into book (id, isbn, title, author_id) values (5,'5000','Tender Is the Night',2);
+insert into book (id, isbn, title, author_id) values (6,'6000','Recalled to Life',1);
+insert into book (id, isbn, title, author_id) values (7,'7000','Dance Dance Dance',2);
+insert into book (id, isbn, title, author_id) values (8,'8000','The Needle Eye',1);
+insert into book (id, isbn, title, author_id) values (9,'9000','Tender Is the Night',2);
+insert into book (id, isbn, title, author_id) values (10,'10000','All Passion Spent',1);
